@@ -1,0 +1,17 @@
+service: sns-lambda-dispatcher
+
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: eu-central-1
+  memorySize: 128
+
+
+functions:
+  message:
+    handler: handler.message
+    events:
+      - http:
+          path: /message
+          method: post
